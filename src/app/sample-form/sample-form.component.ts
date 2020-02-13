@@ -8,6 +8,8 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 })
 export class SampleFormComponent implements OnInit {
   registrationForm: FormGroup;
+  fieldTextType: boolean;
+  repeatFieldTextType: boolean;
 
   constructor(private fb: FormBuilder) {}
 
@@ -21,5 +23,13 @@ export class SampleFormComponent implements OnInit {
       password: ["", Validators.required],
       confirmpassword: ["", Validators.required]
     });
+  }
+
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+
+  toggleRepeatFieldTextType() {
+    this.repeatFieldTextType = !this.repeatFieldTextType;
   }
 }

@@ -23,14 +23,21 @@
             <div class="form-group">
               <label for="email">Password</label>
               <div class="input-group">
+                <!-- Change input type to be able to accept dynamic data -->
                 <input
-                  type="password"
+                  [type]="fieldTextType ? 'text' : 'password'"
                   class="form-control"
                   formControlName="password"
                 />
                 <div class="input-group-append">
                   <span class="input-group-text">
-                    <i class="fa fa-eye-slash"></i>
+                    <i
+                      [ngClass]="{
+                        'fas fa-eye-slash': !fieldTextType,
+                        'fa fa-eye': fieldTextType
+                      }"
+                      (click)="toggleFieldTextType()"
+                    ></i>
                   </span>
                 </div>
               </div>
@@ -39,14 +46,21 @@
             <div class="form-group">
               <label for="email">Repeat your password</label>
               <div class="input-group">
+                <!-- Change input type to be able to accept dynamic data -->
                 <input
-                  type="password"
+                  [type]="repeatFieldTextType ? 'text' : 'password'"
                   class="form-control"
                   formControlName="confirmpassword"
                 />
                 <div class="input-group-append">
                   <span class="input-group-text">
-                    <i class="fa fa-eye-slash"></i>
+                    <i
+                      [ngClass]="{
+                        'fas fa-eye-slash': !repeatFieldTextType,
+                        'fa fa-eye': repeatFieldTextType
+                      }"
+                      (click)="toggleRepeatFieldTextType()"
+                    ></i>
                   </span>
                 </div>
               </div>
